@@ -121,22 +121,24 @@ public class UsaVehiculo implements ProcesaVehiculo {
                         int ced = Integer.parseInt(sc.nextLine());
                         System.out.print("Celular (solo numeros): ");
                         int cel = Integer.parseInt(sc.nextLine());
-                        System.out.print("¿Con convenio? (si/no): ");
+                        System.out.print("Con convenio? (si/no): ");
                         String r = sc.nextLine();
                         Propietario nuevoP = new Propietario(nom, ced, cel);
                         if ("si".equalsIgnoreCase(r)) {
-                            System.out.print("Fecha afiliación (yyyy-MM-dd): ");
+                            System.out.print("Fecha afiliacion (yyyy-MM-dd): ");
                             String fecha = sc.nextLine();
                             Vehiculo nuevoV = new VehiculoConConvenio(pl, mod, nuevoP, fecha);
                             vehiculos.add(nuevoV);
-                        } else {
+                        }if ("no".equalsIgnoreCase(r)){
                             System.out.print("Aseguradora (MAPFRE, SURA, ALLIANZ, SOLIDARIA, LIBERTY): ");
                             String as = sc.nextLine();
                             Vehiculo nuevoV = new VehiculoSinConvenio(pl, mod, nuevoP, as);
                             vehiculos.add(nuevoV);
-                        }
+                        
                         System.out.println("Vehiculo agregado.");
-                        }else{
+                        }else {
+                            System.err.println("ERROR DE ENTRADA: Debe ingresar una respuesta valida (si/no)");
+                        }}else{
                            System.err.println("ERROR DE ENTRADA: Debe ingresar solo letras para el nombre");
                         }}else{
                             System.err.println("ERROR DE ENTRADA: La placa debe tener exactamente 3 letras y 3 numeros (ej: ABC123).");
