@@ -4,6 +4,7 @@ package Gestion;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 import Gestion.*;
+import java.awt.HeadlessException;
 
 /**
  *
@@ -22,7 +23,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         rbConConvenio.setSelected(true); // Seleccionar uno por defecto
         txtAseguradora.setEnabled(false);
-        
+        txtFechaAfiliacion.setEnabled(true);
         
         pnlDatosReparacion.setVisible(false);
     }
@@ -66,7 +67,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtModelo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblPlacaNueva = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtNombreProp = new javax.swing.JTextField();
@@ -117,11 +118,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel11.setText("Descripcion:");
 
-        txtDescripcionRep.setText("jTextField1");
-
         jLabel12.setText("Costo: ");
 
-        txtCostoRep.setText("jTextField1");
         txtCostoRep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCostoRepActionPerformed(evt);
@@ -143,8 +141,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnAgregarReparacionActionPerformed(evt);
             }
         });
-
-        lblMensajeReparacion.setText("jLabel14");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -169,7 +165,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(217, 217, 217)
                         .addComponent(btnAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
+                        .addGap(173, 173, 173)
                         .addComponent(lblMensajeReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
@@ -189,9 +185,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(cmbEstadoRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16)
                 .addComponent(btnAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblMensajeReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlDatosReparacionLayout = new javax.swing.GroupLayout(pnlDatosReparacion);
@@ -228,7 +224,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab2", pnlDatosReparacion);
+        jTabbedPane1.addTab("Asignar reparacion", pnlDatosReparacion);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 90, 30));
@@ -238,40 +234,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel2.setText("Modelo vehiculo:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
-        jPanel1.add(lblPlacaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 90, -1));
+        jPanel1.add(txtPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 90, -1));
 
         jLabel4.setText("Datos Propietario:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
         jLabel5.setText("Nombre:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
-
-        txtNombreProp.setText("jTextField1");
         jPanel1.add(txtNombreProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 110, -1));
 
         jLabel7.setText("N. Celular:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
-
-        txtCelularProp.setText("jTextField1");
         jPanel1.add(txtCelularProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 110, -1));
 
         jLabel8.setText("Cedula: ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
-
-        txtCedulaProp.setText("jTextField1");
         jPanel1.add(txtCedulaProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 110, -1));
 
         buttonGroup1.add(rbSinConvenio);
         rbSinConvenio.setText("No tiene convenio");
+        rbSinConvenio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSinConvenioActionPerformed(evt);
+            }
+        });
         jPanel1.add(rbSinConvenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jLabel9.setText("Fecha afiliacion: ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
-        jPanel1.add(txtFechaAfiliacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 120, 20));
+        jPanel1.add(txtFechaAfiliacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 130, 30));
 
         jLabel6.setText("Aseguradora:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
-        jPanel1.add(txtAseguradora, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 120, 20));
+        jPanel1.add(txtAseguradora, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 130, 30));
 
         btnRegistrarNuevo.setText("Registrar Vehiculo");
         btnRegistrarNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -283,11 +278,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         buttonGroup1.add(rbConConvenio);
         rbConConvenio.setText("Tiene convenio");
+        rbConConvenio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbConConvenioActionPerformed(evt);
+            }
+        });
         jPanel1.add(rbConConvenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 201, 120, 30));
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("registro", jPanel1);
 
-        cmbTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Listar todos los vehiculos", "Detalles de reparacion por placa", "Porcentaje de reparacion verificada" }));
+        cmbTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Listar Todos los Vehiculos", "Detalles de Reparacion por Placa", "Porcentaje de Reparacion Verificada" }));
 
         btnGenerarReporte.setText("Generar Reporte");
         btnGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -307,9 +307,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(cmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(102, 102, 102)
+                        .addGap(19, 19, 19)
+                        .addComponent(cmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
                         .addComponent(btnGenerarReporte))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
@@ -321,11 +321,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("reportes", jPanel2);
@@ -342,29 +342,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtPlacaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEstadoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnBuscarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btnBuscarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEstadoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPlacaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBuscarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblEstadoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPlacaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addComponent(lblEstadoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -487,31 +484,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Métodos para la Pestaña 3
 
-private void listarTodosLosVehiculos() {
-    java.util.ArrayList<Vehiculo> lista = gestor.getVehiculos();
-    if (lista.isEmpty()) {
-        txtAreaReportes.setText("No hay vehículos registrados.");
-        return;
-    }
-
-    StringBuilder sb = new StringBuilder();
-    sb.append("--- LISTADO COMPLETO DE VEHÍCULOS ---\n\n");
+    private void listarTodosLosVehiculos() {
+    // 1. Llama al gestor para obtener la lista completa como una cadena de texto.
+    // Usamos gestor.getVehiculos() para pasar toda la lista al método listarVehiculos.
+    String reporte = gestor.listarVehiculos(gestor.getVehiculos());
     
-    // Usamos el método de ordenar del gestor
-    gestor.ordenarVehiculosPorPlaca(lista); 
-
-    for (Vehiculo v : lista) {
-        String tipo = (v instanceof VehiculoConConvenio) ? "CON CONVENIO" : "SIN CONVENIO";
-        // Usamos el método calcularPorcentajeVerificados() que está en Vehiculo
-        sb.append(String.format("Placa: %s | Modelo: %s | Tipo: %s | Prop.: %s | %% Verificadas: %.2f%%\n",
-                v.getPlaca(),
-                v.getModelo(),
-                tipo,
-                v.getPropietario().getNombre(),
-                v.calcularPorcentajeVerificados()));
-        sb.append("--------------------------------------------------\n");
-    }
-    txtAreaReportes.setText(sb.toString());
+    // 2. Muestra ese texto en tu JTextArea (txtAreaReportes).
+    txtAreaReportes.setText(reporte);
 }
 
 private void mostrarDetalleReparaciones(String placa) {
@@ -543,28 +522,29 @@ private void mostrarPorcentajeVerificadas() {
     txtAreaReportes.setText(sb.toString());
 }
     private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
-       txtAreaReportes.setText(""); // Limpia el área antes de cada reporte
+     txtAreaReportes.setText(""); // Limpia el área antes de cada reporte
     
-    String tipoReporte = (String) cmbTipoReporte.getSelectedItem();
+    // Obtiene la posición (índice) de la opción seleccionada.
+    int tipoReporte = cmbTipoReporte.getSelectedIndex();
     
     switch (tipoReporte) {
-        case "Listar Todos los Vehículos":
-            listarTodosLosVehiculos(); // Método a implementar
+        case 0: // Corresponde a "Listar Todos los Vehículos" (Índice 0)
+            listarTodosLosVehiculos();
             break;
             
-        case "Detalle de Reparaciones por Placa":
-            // Solicita la placa con una ventana de diálogo simple
+        case 1: // Corresponde a "Detalle de Reparaciones por Placa" (Índice 1)
             String placa = javax.swing.JOptionPane.showInputDialog("Ingrese la placa del vehículo:");
             if (placa != null && !placa.trim().isEmpty()) {
-                mostrarDetalleReparaciones(placa.trim()); // Método a implementar
+                mostrarDetalleReparaciones(placa.trim());
             }
             break;
             
-        case "Porcentaje de Reparaciones Verificadas":
-            mostrarPorcentajeVerificadas(); // Método a implementar
+        case 2: // Corresponde a "Porcentaje de Reparaciones Verificadas" (Índice 2)
+            mostrarPorcentajeVerificadas();
             break;
             
         default:
+            // Esto solo ocurriría si no hay ninguna opción seleccionada (-1)
             txtAreaReportes.setText("Seleccione una opción válida.");
             break;
     }
@@ -572,72 +552,86 @@ private void mostrarPorcentajeVerificadas() {
 
     private void btnRegistrarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoActionPerformed
     try {
-        // --- 1. CAPTURA Y VALIDACIÓN DE DATOS REQUERIDOS ---
-        String placa = lblPlacaNueva.getText().trim();
-        String modelo = txtModelo.getText().trim();
+        
+        // =======================================================
+        // 1. OBTENER Y CONVERTIR TODOS LOS DATOS
+        // =======================================================
+        
+        // Datos del Propietario (protegidos por NumberFormatException)
         String nombreProp = txtNombreProp.getText().trim();
-        String cedulaStr = txtCedulaProp.getText().trim();
-        String celularStr = txtCelularProp.getText().trim();
-
-        if (placa.isEmpty() || modelo.isEmpty() || nombreProp.isEmpty() || cedulaStr.isEmpty() || celularStr.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Debe completar todos los campos obligatorios.", 
-                                          "Error de Validación", javax.swing.JOptionPane.ERROR_MESSAGE);
-            return;
+        int cedula = Integer.parseInt(txtCedulaProp.getText().trim());
+        int celular = Integer.parseInt(txtCelularProp.getText().trim());
+        
+        // Datos del Vehículo
+        String placa = txtPlaca.getText().trim();
+        String modelo = txtModelo.getText().trim();
+        
+        // Validación básica de campos de texto
+        if (placa.isEmpty() || modelo.isEmpty() || nombreProp.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar los campos de Placa, Modelo y Nombre.", "Error de Validación", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return; // Detiene el proceso si faltan campos
         }
-
-        // --- 2. CONVERSIÓN Y CREACIÓN DE PROPIETARIO ---
-        int cedula = Integer.parseInt(cedulaStr);
-        int celular = Integer.parseInt(celularStr);
+        
+        // Crear el objeto Propietario
         Propietario propietario = new Propietario(nombreProp, cedula, celular);
-
-        // --- 3. CREACIÓN DEL VEHÍCULO (Convenio o Sin Convenio) ---
+        
+        // Crear el objeto Vehiculo (Con o Sin Convenio)
         Vehiculo nuevoVehiculo = null;
 
         if (rbConConvenio.isSelected()) {
-            String fechaAfiliacion = txtFechaAfiliacion.getText().trim();
-            // La clase VehiculoConConvenio solo necesita la fecha
-            if (fechaAfiliacion.isEmpty()) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Debe ingresar Fecha de Afiliación para Convenio.", 
-                                              "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            // Usa el constructor que existe en VehiculoConConvenio.java
-            nuevoVehiculo = new VehiculoConConvenio(placa, modelo, propietario, fechaAfiliacion);
+            String fechaAfiliacionStr = txtFechaAfiliacion.getText().trim();
+            // Asume que VehiculoConConvenio se crea con la fecha como String
+            nuevoVehiculo = new VehiculoConConvenio(placa, modelo, propietario, fechaAfiliacionStr);
             
-        } else if (rbSinConvenio.isSelected()){ 
-            String aseguradora = txtAseguradora.getText().trim(); 
-            // La clase VehiculoSinConvenio solo necesita la aseguradora
+        } else { // rbSinConvenio.isSelected()
+            String aseguradora = txtAseguradora.getText().trim();
             if (aseguradora.isEmpty()) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Debe ingresar la Aseguradora para Sin Convenio.", 
-                                              "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                javax.swing.JOptionPane.showMessageDialog(this, "Debe especificar la Aseguradora para un vehículo SIN convenio.", "Error de Validación", javax.swing.JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            // Usa el constructor que existe en VehiculoSinConvenio.java
+            // Asume que VehiculoSinConvenio se crea con la aseguradora
             nuevoVehiculo = new VehiculoSinConvenio(placa, modelo, propietario, aseguradora);
         }
 
-        // --- 4. GUARDADO Y RETROALIMENTACIÓN ---
-        boolean registrado = gestor.agregarVehiculo(nuevoVehiculo); 
+        // =======================================================
+        // 2. ADICIONAR EL VEHÍCULO AL GESTOR (LA PARTE FALTANTE)
+        // =======================================================
+        boolean exito = gestor.adicionarVehiculo(nuevoVehiculo); 
 
-        if (registrado) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Vehículo registrado con éxito.", "Registro Exitoso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            limpiarCamposRegistro(); 
+        if (exito) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Vehículo registrado con éxito.", "Registro OK", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            // Opcional: limpiarCamposRegistro(); para resetear el formulario
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error: La placa " + placa + " ya se encuentra registrada.", 
-                                          "Error de Registro", javax.swing.JOptionPane.WARNING_MESSAGE);
+             // Esto puede ocurrir si el método adicionarVehiculo maneja duplicados
+             javax.swing.JOptionPane.showMessageDialog(this, "Error: No se pudo registrar el vehículo. (Posiblemente placa duplicada)", "Error de Guardado", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
 
+        
     } catch (NumberFormatException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Error: Cédula y Celular deben ser valores numéricos válidos.", 
-                                      "Error de Formato", javax.swing.JOptionPane.ERROR_MESSAGE);
+        // Captura si Cédula o Celular no son números válidos o están vacíos
+        javax.swing.JOptionPane.showMessageDialog(this, "Error: Cédula y Celular deben ser números enteros válidos y no pueden estar vacíos.", "Error de Datos Numéricos", javax.swing.JOptionPane.ERROR_MESSAGE);
+        
     } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error inesperado al registrar el vehículo: " + e.getMessage(), 
-                                      "Error General", javax.swing.JOptionPane.ERROR_MESSAGE);
+        // Captura cualquier otro error, como un formato de fecha incorrecto
+        javax.swing.JOptionPane.showMessageDialog(this, "Error grave durante el registro: " + e.getMessage(), "Error General", javax.swing.JOptionPane.ERROR_MESSAGE);
+        e.printStackTrace();
     }
     }//GEN-LAST:event_btnRegistrarNuevoActionPerformed
+
+    private void rbConConvenioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbConConvenioActionPerformed
+        txtFechaAfiliacion.setEnabled(true); 
+        txtAseguradora.setEnabled(false);
+        txtAseguradora.setText("");
+    }//GEN-LAST:event_rbConConvenioActionPerformed
+
+    private void rbSinConvenioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSinConvenioActionPerformed
+        txtFechaAfiliacion.setEnabled(false);
+        txtFechaAfiliacion.setText(""); // Opcional: limpiar el campo de fecha
+        txtAseguradora.setEnabled(true);
+    }//GEN-LAST:event_rbSinConvenioActionPerformed
     
     private void limpiarCamposRegistro() {
-    lblPlacaNueva.setText("");
+    txtPlaca.setText("");
     txtModelo.setText("");
     txtNombreProp.setText("");
     txtCedulaProp.setText("");
@@ -703,7 +697,6 @@ private void mostrarPorcentajeVerificadas() {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblEstadoVehiculo;
     private javax.swing.JLabel lblMensajeReparacion;
-    private javax.swing.JTextField lblPlacaNueva;
     private javax.swing.JLabel lblVehiculoEncontrado;
     private javax.swing.JPanel pnlDatosReparacion;
     private javax.swing.JRadioButton rbConConvenio;
@@ -717,6 +710,7 @@ private void mostrarPorcentajeVerificadas() {
     private javax.swing.JTextField txtFechaAfiliacion;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNombreProp;
+    private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtPlacaBusqueda;
     private javax.swing.JTextField txtPlacaReparacion;
     // End of variables declaration//GEN-END:variables

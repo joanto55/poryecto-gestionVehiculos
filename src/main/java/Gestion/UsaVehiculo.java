@@ -50,20 +50,23 @@ public class UsaVehiculo implements ProcesaVehiculo {
         });
     }
 
-    @Override
-    public void listarVehiculos(ArrayList<Vehiculo> lista) {
-        ordenarVehiculosPorPlaca(lista);
-        System.out.println("Listado de vehiculos:");
-        for (Vehiculo v : lista) {
-            String tipo = (v instanceof VehiculoConConvenio) ? "CON CONVENIO" : "SIN CONVENIO";
-            System.out.println("Placa: " + v.getPlaca() +
-                    " | Modelo: " + v.getModelo() +
-                    " | " + tipo +
-                    " | Propietario: " + v.getPropietario().getNombre() +
-                    " | % verificadas: " + String.format("%.2f", v.calcularPorcentajeVerificados()) + "%");
-        }
+   // EN UsaVehiculo.java (MODIFICAR)
+@Override
+public String listarVehiculos(ArrayList<Vehiculo> lista) {
+    StringBuilder reporte = new StringBuilder(); 
+    
+    if (lista.isEmpty()) {
+        return "--- No hay vehículos registrados ---\n";
     }
 
+    reporte.append("--- REPORTE DE TODOS LOS VEHÍCULOS ---\n\n");
+    for (Vehiculo veh : lista) {
+        // Usa el método toString() de tu clase Vehiculo para generar un formato legible
+        reporte.append(veh.toString()).append("\n==================================\n"); 
+    }
+    
+    return reporte.toString(); 
+}
     @Override
     public String mostrarVehiculo(ArrayList<Vehiculo> bd, String placaBuscada) {
         for (Vehiculo v : bd) {
@@ -88,20 +91,14 @@ public class UsaVehiculo implements ProcesaVehiculo {
         }
         return null;
     }
-    
-    /**
- * Agrega un vehículo a la lista si la placa no existe.
- * @param vehiculo El vehículo a agregar.
- * @return true si se agregó, false si ya existía.
- */
-public boolean agregarVehiculo(Vehiculo vehiculo) {
-    // Reutilizar el método de búsqueda para verificar si existe
-    if (buscarPorPlaca(vehiculo.getPlaca()) != null) {
-        return false; // Ya existe un vehículo con esa placa
-    }
-    return vehiculos.add(vehiculo); // Agregar el vehículo a la lista
-}
 
+    public boolean adicionarVehiculo(Vehiculo veh) {
+    if (veh == null) {
+        return false;
+    }
+    // La lista 'vehiculos' es la propiedad ArrayList<Vehiculo>
+    return vehiculos.add(veh); 
+}
     /**
      * Método de consola simple para probar las funcionalidades.
      */
@@ -215,5 +212,9 @@ public boolean agregarVehiculo(Vehiculo vehiculo) {
                 new VentanaPrincipal().setVisible(true);
             }
         });
+    }
+
+    boolean agregarVehiculo(Vehiculo nuevoVehiculo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

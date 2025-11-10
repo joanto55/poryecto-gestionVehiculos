@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 public interface ProcesaVehiculo {
     void ordenarVehiculosPorPlaca(ArrayList<Vehiculo> lista);
-    void listarVehiculos(ArrayList<Vehiculo> lista);
+    
+    // CAMBIO: Debe retornar String
+    String listarVehiculos(ArrayList<Vehiculo> lista); 
+    
     String mostrarVehiculo(ArrayList<Vehiculo> bd, String placaBuscada);
 }

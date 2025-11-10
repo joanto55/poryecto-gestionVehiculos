@@ -36,15 +36,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Component id="jLabel1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="txtPlacaBusqueda" min="-2" pref="180" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblEstadoVehiculo" min="-2" pref="157" max="-2" attributes="0"/>
                                   <Component id="btnBuscarPlaca" min="-2" pref="142" max="-2" attributes="0"/>
+                                  <Component id="lblEstadoVehiculo" min="-2" pref="357" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jLabel1" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -55,20 +55,15 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="33" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtPlacaBusqueda" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnBuscarPlaca" min="-2" pref="39" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblEstadoVehiculo" min="-2" pref="54" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtPlacaBusqueda" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBuscarPlaca" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <Component id="lblEstadoVehiculo" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTabbedPane1" min="-2" pref="468" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -104,8 +99,8 @@
         <Container class="javax.swing.JPanel" name="pnlDatosReparacion">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab2">
-                <Property name="tabTitle" type="java.lang.String" value="tab2"/>
+              <JTabbedPaneConstraints tabName="Asignar reparacion">
+                <Property name="tabTitle" type="java.lang.String" value="Asignar reparacion"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -201,7 +196,7 @@
                                   <Component id="btnAgregarReparacion" min="-2" pref="147" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                                   <Component id="lblMensajeReparacion" min="-2" pref="249" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -228,9 +223,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="btnAgregarReparacion" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace pref="57" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lblMensajeReparacion" min="-2" pref="51" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                          <EmptySpace pref="114" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -242,9 +237,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDescripcionRep">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel12">
                   <Properties>
@@ -252,9 +244,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCostoRep">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCostoRepActionPerformed"/>
                   </Events>
@@ -290,9 +279,6 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblMensajeReparacion">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel14"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -301,8 +287,8 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab1">
-                <Property name="tabTitle" type="java.lang.String" value="tab1"/>
+              <JTabbedPaneConstraints tabName="registro">
+                <Property name="tabTitle" type="java.lang.String" value="registro"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -338,7 +324,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="lblPlacaNueva">
+            <Component class="javax.swing.JTextField" name="txtPlaca">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="50" y="150" width="90" height="-1"/>
@@ -366,9 +352,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNombreProp">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="430" y="80" width="110" height="-1"/>
@@ -386,9 +369,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCelularProp">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="430" y="110" width="110" height="-1"/>
@@ -406,9 +386,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCedulaProp">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="430" y="140" width="110" height="-1"/>
@@ -422,6 +399,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="No tiene convenio"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbSinConvenioActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="50" y="230" width="-1" height="-1"/>
@@ -441,7 +421,7 @@
             <Component class="javax.swing.JTextField" name="txtFechaAfiliacion">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="320" y="200" width="120" height="20"/>
+                  <AbsoluteConstraints x="320" y="190" width="130" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -458,7 +438,7 @@
             <Component class="javax.swing.JTextField" name="txtAseguradora">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="320" y="230" width="120" height="20"/>
+                  <AbsoluteConstraints x="320" y="230" width="130" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -482,6 +462,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tiene convenio"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbConConvenioActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="50" y="201" width="120" height="30"/>
@@ -505,9 +488,9 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="cmbTipoReporte" min="-2" pref="123" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <Component id="cmbTipoReporte" min="-2" pref="232" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="btnGenerarReporte" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -524,12 +507,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cmbTipoReporte" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="btnGenerarReporte" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="cmbTipoReporte" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="289" max="-2" attributes="0"/>
-                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -539,9 +522,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Listar todos los vehiculos"/>
-                    <StringItem index="1" value="Detalles de reparacion por placa"/>
-                    <StringItem index="2" value="Porcentaje de reparacion verificada"/>
+                    <StringItem index="0" value="Listar Todos los Vehiculos"/>
+                    <StringItem index="1" value="Detalles de Reparacion por Placa"/>
+                    <StringItem index="2" value="Porcentaje de Reparacion Verificada"/>
                   </StringArray>
                 </Property>
               </Properties>
