@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
@@ -88,6 +88,19 @@ public class UsaVehiculo implements ProcesaVehiculo {
         }
         return null;
     }
+    
+    /**
+ * Agrega un vehículo a la lista si la placa no existe.
+ * @param vehiculo El vehículo a agregar.
+ * @return true si se agregó, false si ya existía.
+ */
+public boolean agregarVehiculo(Vehiculo vehiculo) {
+    // Reutilizar el método de búsqueda para verificar si existe
+    if (buscarPorPlaca(vehiculo.getPlaca()) != null) {
+        return false; // Ya existe un vehículo con esa placa
+    }
+    return vehiculos.add(vehiculo); // Agregar el vehículo a la lista
+}
 
     /**
      * Método de consola simple para probar las funcionalidades.
