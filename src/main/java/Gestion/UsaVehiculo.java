@@ -118,29 +118,38 @@ public class UsaVehiculo implements ProcesaVehiculo {
                     try{
                         System.out.print("Placa: ");
                         String pl = sc.nextLine();
+                        if(pl.matches("^[a-zA-Z]{3}\\d{3}$")){
                         System.out.print("Modelo: ");
                         String mod = sc.nextLine();
                         System.out.print("Nombre propietario: ");
                         String nom = sc.nextLine();
+                        if(nom.matches("^[a-zA-Z\\s]+$")){
                         System.out.print("Cedula (solo numeros): ");
                         int ced = Integer.parseInt(sc.nextLine());
                         System.out.print("Celular (solo numeros): ");
                         int cel = Integer.parseInt(sc.nextLine());
-                        System.out.print("¿Con convenio? (s/n): ");
+                        System.out.print("Con convenio? (si/no): ");
                         String r = sc.nextLine();
                         Propietario nuevoP = new Propietario(nom, ced, cel);
-                        if ("s".equalsIgnoreCase(r)) {
-                            System.out.print("Fecha afiliación (yyyy-MM-dd): ");
+                        if ("si".equalsIgnoreCase(r)) {
+                            System.out.print("Fecha afiliacion (yyyy-MM-dd): ");
                             String fecha = sc.nextLine();
                             Vehiculo nuevoV = new VehiculoConConvenio(pl, mod, nuevoP, fecha);
                             vehiculos.add(nuevoV);
-                        } else {
+                        }if ("no".equalsIgnoreCase(r)){
                             System.out.print("Aseguradora (MAPFRE, SURA, ALLIANZ, SOLIDARIA, LIBERTY): ");
                             String as = sc.nextLine();
                             Vehiculo nuevoV = new VehiculoSinConvenio(pl, mod, nuevoP, as);
                             vehiculos.add(nuevoV);
+                        
+                        System.out.println("Vehiculo agregado.");
+                        }else {
+                            System.err.println("ERROR DE ENTRADA: Debe ingresar una respuesta valida (si/no)");
+                        }}else{
+                           System.err.println("ERROR DE ENTRADA: Debe ingresar solo letras para el nombre");
+                        }}else{
+                            System.err.println("ERROR DE ENTRADA: La placa debe tener exactamente 3 letras y 3 numeros (ej: ABC123).");
                         }
-                        System.out.println("Vehículo agregado.");
                     } catch(NumberFormatException e){
                         System.err.println("ERROR DE ENTRADA!!!!");
                         System.err.println("Debe ingresar solo numeros para cedula o numero de celular");
