@@ -22,7 +22,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         rbConConvenio.setSelected(true); // Seleccionar uno por defecto
-        txtAseguradora.setEnabled(false);
+        cmbAseguradora.setEnabled(false);
         txtFechaAfiliacion.setEnabled(true);
         
         pnlDatosReparacion.setVisible(false);
@@ -79,9 +79,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtFechaAfiliacion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtAseguradora = new javax.swing.JTextField();
         btnRegistrarNuevo = new javax.swing.JButton();
         rbConConvenio = new javax.swing.JRadioButton();
+        cmbAseguradora = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         cmbTipoReporte = new javax.swing.JComboBox<>();
         btnGenerarReporte = new javax.swing.JButton();
@@ -266,7 +266,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel6.setText("Aseguradora:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
-        jPanel1.add(txtAseguradora, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 130, 30));
 
         btnRegistrarNuevo.setText("Registrar Vehiculo");
         btnRegistrarNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -284,6 +283,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rbConConvenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 201, 120, 30));
+
+        cmbAseguradora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAPFRE", "SURA", "ALLIANZ", "SOLIDARIA", "LIBERTY" }));
+        jPanel1.add(cmbAseguradora, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 160, 30));
 
         jTabbedPane1.addTab("registro", jPanel1);
 
@@ -584,14 +586,15 @@ private void mostrarPorcentajeVerificadas() {
             nuevoVehiculo = new VehiculoConConvenio(placa, modelo, propietario, fechaAfiliacionStr);
             
         } else { // rbSinConvenio.isSelected()
-            String aseguradora = txtAseguradora.getText().trim();
-            if (aseguradora.isEmpty()) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Debe especificar la Aseguradora para un vehículo SIN convenio.", "Error de Validación", javax.swing.JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-            // Asume que VehiculoSinConvenio se crea con la aseguradora
-            nuevoVehiculo = new VehiculoSinConvenio(placa, modelo, propietario, aseguradora);
+            String aseguradora = cmbAseguradora.getSelectedItem().toString();
+        
+        if (aseguradora.isEmpty() || aseguradora.equals("Seleccione Aseguradora")) { // Ajusta la validación si usas un ítem por defecto
+            javax.swing.JOptionPane.showMessageDialog(this, "Debe seleccionar una Aseguradora.", "Error de Validación", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
         }
+        
+        nuevoVehiculo = new VehiculoSinConvenio(placa, modelo, propietario, aseguradora);
+    }
 
         // =======================================================
         // 2. ADICIONAR EL VEHÍCULO AL GESTOR (LA PARTE FALTANTE)
@@ -620,27 +623,38 @@ private void mostrarPorcentajeVerificadas() {
 
     private void rbConConvenioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbConConvenioActionPerformed
         txtFechaAfiliacion.setEnabled(true); 
-        txtAseguradora.setEnabled(false);
-        txtAseguradora.setText("");
+    // Ahora deshabilita el JComboBox
+    cmbAseguradora.setEnabled(false);
     }//GEN-LAST:event_rbConConvenioActionPerformed
 
     private void rbSinConvenioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSinConvenioActionPerformed
-        txtFechaAfiliacion.setEnabled(false);
-        txtFechaAfiliacion.setText(""); // Opcional: limpiar el campo de fecha
-        txtAseguradora.setEnabled(true);
+       txtFechaAfiliacion.setEnabled(false);
+    txtFechaAfiliacion.setText("");
+    // Ahora habilita el JComboBox
+    cmbAseguradora.setEnabled(true);
     }//GEN-LAST:event_rbSinConvenioActionPerformed
     
     private void limpiarCamposRegistro() {
+    // Limpieza de campos de texto
     txtPlaca.setText("");
     txtModelo.setText("");
     txtNombreProp.setText("");
     txtCedulaProp.setText("");
     txtCelularProp.setText("");
     txtFechaAfiliacion.setText("");
-    txtAseguradora.setText("");
+    
+    // --- CAMBIOS AQUÍ ---
+    
+    // 1. Limpia el JComboBox seleccionando el primer elemento (índice 0)
+    cmbAseguradora.setSelectedIndex(0); 
+    
+    // 2. Establece el estado por defecto del formulario (rbSinConvenio)
     rbSinConvenio.setSelected(true);
-    // Para que los campos se muestren y oculten correctamente al limpiar:
-    txtAseguradora.setEnabled(true);
+    
+    // Para que los campos se muestren y oculten correctamente al limpiar (Estado: SIN CONVENIO):
+    // 3. Habilita el JComboBox de Aseguradora
+    cmbAseguradora.setEnabled(true); 
+    // 4. Deshabilita el campo de Fecha de Afiliación
     txtFechaAfiliacion.setEnabled(false); 
 }
     /**
@@ -675,6 +689,7 @@ private void mostrarPorcentajeVerificadas() {
     private javax.swing.JButton btnGenerarReporte;
     private javax.swing.JButton btnRegistrarNuevo;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cmbAseguradora;
     private javax.swing.JComboBox<String> cmbEstadoRep;
     private javax.swing.JComboBox<String> cmbTipoReporte;
     private javax.swing.JLabel jLabel1;
@@ -702,7 +717,6 @@ private void mostrarPorcentajeVerificadas() {
     private javax.swing.JRadioButton rbConConvenio;
     private javax.swing.JRadioButton rbSinConvenio;
     private javax.swing.JTextArea txtAreaReportes;
-    private javax.swing.JTextField txtAseguradora;
     private javax.swing.JTextField txtCedulaProp;
     private javax.swing.JTextField txtCelularProp;
     private javax.swing.JTextField txtCostoRep;
