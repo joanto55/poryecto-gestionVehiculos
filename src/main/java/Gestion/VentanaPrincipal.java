@@ -82,6 +82,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnRegistrarNuevo = new javax.swing.JButton();
         rbConConvenio = new javax.swing.JRadioButton();
         cmbAseguradora = new javax.swing.JComboBox<>();
+        txtValidacionPlaca = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         cmbTipoReporte = new javax.swing.JComboBox<>();
         btnGenerarReporte = new javax.swing.JButton();
@@ -89,6 +90,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtAreaReportes = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(75, 100, 151));
 
         jLabel1.setText("Ingrese la placa:");
 
@@ -105,7 +107,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setText("Busqueda placa:");
+        pnlDatosReparacion.setBackground(new java.awt.Color(153, 153, 255));
+
+        jLabel10.setText("Buscar placa:");
 
         btnBuscarParareparar.setText("Buscar");
         btnBuscarParareparar.addActionListener(new java.awt.event.ActionListener() {
@@ -114,9 +118,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        lblVehiculoEncontrado.setText(".");
+        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel11.setText("Descripcion:");
+
+        txtDescripcionRep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescripcionRepActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Costo: ");
 
@@ -147,47 +157,47 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbEstadoRep, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDescripcionRep, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCostoRep, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(59, 59, 59)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(cmbEstadoRep, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(btnAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(lblMensajeReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDescripcionRep, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCostoRep)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMensajeReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(btnAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDescripcionRep, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDescripcionRep, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtCostoRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbEstadoRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
-                .addComponent(btnAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblMensajeReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(btnAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblMensajeReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cmbEstadoRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlDatosReparacionLayout = new javax.swing.GroupLayout(pnlDatosReparacion);
@@ -195,61 +205,65 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pnlDatosReparacionLayout.setHorizontalGroup(
             pnlDatosReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosReparacionLayout.createSequentialGroup()
-                .addGroup(pnlDatosReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDatosReparacionLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPlacaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscarParareparar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblVehiculoEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlDatosReparacionLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(241, 241, 241)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPlacaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscarParareparar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblVehiculoEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosReparacionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170))
         );
         pnlDatosReparacionLayout.setVerticalGroup(
-            pnlDatosReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            pnlDatosReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(pnlDatosReparacionLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnlDatosReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtPlacaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarParareparar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblVehiculoEncontrado))
-                .addGap(28, 28, 28)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGroup(pnlDatosReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlDatosReparacionLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(pnlDatosReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPlacaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarParareparar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosReparacionLayout.createSequentialGroup()
+                        .addContainerGap(38, Short.MAX_VALUE)
+                        .addComponent(lblVehiculoEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("Asignar reparacion", pnlDatosReparacion);
 
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 90, 30));
+        jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 90, 30));
 
         jLabel3.setText("Placa vehiculo:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
         jLabel2.setText("Modelo vehiculo:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
-        jPanel1.add(txtPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 90, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+        jPanel1.add(txtPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 90, -1));
 
         jLabel4.setText("Datos Propietario:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         jLabel5.setText("Nombre:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
-        jPanel1.add(txtNombreProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 110, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
+        jPanel1.add(txtNombreProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 110, -1));
 
-        jLabel7.setText("N. Celular:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
-        jPanel1.add(txtCelularProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 110, -1));
+        jLabel7.setText("Celular:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        jPanel1.add(txtCelularProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 110, -1));
 
         jLabel8.setText("Cedula: ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
-        jPanel1.add(txtCedulaProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 110, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
+        jPanel1.add(txtCedulaProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 110, -1));
 
         buttonGroup1.add(rbSinConvenio);
         rbSinConvenio.setText("No tiene convenio");
@@ -258,14 +272,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 rbSinConvenioActionPerformed(evt);
             }
         });
-        jPanel1.add(rbSinConvenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        jPanel1.add(rbSinConvenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
 
         jLabel9.setText("Fecha afiliacion: ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
-        jPanel1.add(txtFechaAfiliacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 130, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
+        jPanel1.add(txtFechaAfiliacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 160, 30));
 
         jLabel6.setText("Aseguradora:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, -1));
 
         btnRegistrarNuevo.setText("Registrar Vehiculo");
         btnRegistrarNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -273,7 +287,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnRegistrarNuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrarNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 170, 50));
+        jPanel1.add(btnRegistrarNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 170, 50));
 
         buttonGroup1.add(rbConConvenio);
         rbConConvenio.setText("Tiene convenio");
@@ -282,12 +296,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 rbConConvenioActionPerformed(evt);
             }
         });
-        jPanel1.add(rbConConvenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 201, 120, 30));
+        jPanel1.add(rbConConvenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 120, 30));
 
         cmbAseguradora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAPFRE", "SURA", "ALLIANZ", "SOLIDARIA", "LIBERTY" }));
-        jPanel1.add(cmbAseguradora, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 160, 30));
+        jPanel1.add(cmbAseguradora, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 160, 30));
 
-        jTabbedPane1.addTab("registro", jPanel1);
+        txtValidacionPlaca.setForeground(new java.awt.Color(255, 0, 51));
+        jPanel1.add(txtValidacionPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 170, 50));
+
+        jTabbedPane1.addTab("Registro", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
         cmbTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Listar Todos los Vehiculos", "Detalles de Reparacion por Placa", "Porcentaje de Reparacion Verificada" }));
 
@@ -298,6 +317,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        txtAreaReportes.setBackground(new java.awt.Color(104, 104, 165));
         txtAreaReportes.setColumns(20);
         txtAreaReportes.setRows(5);
         jScrollPane1.setViewportView(txtAreaReportes);
@@ -309,14 +329,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGap(100, 100, 100)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
                         .addComponent(cmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(btnGenerarReporte))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                        .addComponent(btnGenerarReporte)))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,33 +350,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("reportes", jPanel2);
+        jTabbedPane1.addTab("Reportes", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addComponent(txtPlacaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtPlacaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnBuscarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEstadoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnBuscarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEstadoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(67, 67, 67))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -364,9 +380,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(btnBuscarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addComponent(lblEstadoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -392,12 +408,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     if (veh != null) {
         // Vehículo ENCONTRADO
-        lblEstadoVehiculo.setText("<html><font color='green'>Vehículo con placa " + placa + " ENCONTRADO. Vaya a Pestaña 2.</font></html>");
+        lblEstadoVehiculo.setText("<html><font color='green'>Vehículo con placa " + placa + " ENCONTRADO. Puede asignarle una reparacion.</font></html>");
         // Ocultar formulario de registro
         // if (pnlRegistroDatos != null) pnlRegistroDatos.setVisible(false); 
     } else {
         // Vehículo NO ENCONTRADO -> Mostrar REGISTRO
-        lblEstadoVehiculo.setText("<html><font color='blue'>Vehículo " + placa + " NO registrado. Complete para ingresarlo.</font></html>");
+        lblEstadoVehiculo.setText("<html><font color='blue'>Vehículo " + placa + " NO registrado. Por favor registre el vehiculo.</font></html>");
         
         // Asignar la placa al campo de registro (si lo tienes, si no, lo usaremos de txtPlacaBusqueda)
         // Ejemplo: txtPlacaRegistro.setText(placa); 
@@ -423,6 +439,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     if (placa.isEmpty()) {
         lblVehiculoEncontrado.setText("<html><font color='red'>Ingrese la placa.</font></html>");
+        txtDescripcionRep.setEnabled(false);
+        txtCostoRep.setEnabled(false);
+        cmbEstadoRep.setEnabled(false);
         return;
     }
 
@@ -432,7 +451,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     if (veh != null) {
         // Vehículo ENCONTRADO
         vehiculoActual = veh; // ¡Guardar el objeto!
-        
+        txtDescripcionRep.setEnabled(true);
+        txtCostoRep.setEnabled(true);
+        cmbEstadoRep.setEnabled(true);
         String tipo = (veh instanceof VehiculoConConvenio) ? "CON CONVENIO" : "SIN CONVENIO";
         
         lblVehiculoEncontrado.setText("<html><font color='green'>Vehículo ENCONTRADO: " + veh.getModelo() + " | Tipo: " + tipo + "</font></html>");
@@ -440,6 +461,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     } else {
         // Vehículo NO ENCONTRADO
         lblVehiculoEncontrado.setText("<html><font color='red'>ERROR: Vehículo con placa " + placa + " NO registrado.</font></html>");
+        txtDescripcionRep.setEnabled(false);
+        txtCostoRep.setEnabled(false);
+        cmbEstadoRep.setEnabled(false);
     }
     }//GEN-LAST:event_btnBuscarPararepararActionPerformed
 
@@ -574,12 +598,19 @@ private void mostrarPorcentajeVerificadas() {
             return; // Detiene el proceso si faltan campos
         }
         
+        Vehiculo veh = gestor.buscarPorPlaca(placa); 
+        if (veh != null) {
+        // Vehículo ENCONTRADO
+        txtValidacionPlaca.setText("<html><font color='red'>El vehiculo con placa " + placa + " ya se encuentra registrado.</font></html>");
+        // Ocultar formulario de registro}
+        return;
+        }else{
         // Crear el objeto Propietario
         Propietario propietario = new Propietario(nombreProp, cedula, celular);
         
         // Crear el objeto Vehiculo (Con o Sin Convenio)
         Vehiculo nuevoVehiculo = null;
-
+        
         if (rbConConvenio.isSelected()) {
             String fechaAfiliacionStr = txtFechaAfiliacion.getText().trim();
             // Asume que VehiculoConConvenio se crea con la fecha como String
@@ -592,6 +623,8 @@ private void mostrarPorcentajeVerificadas() {
             javax.swing.JOptionPane.showMessageDialog(this, "Debe seleccionar una Aseguradora.", "Error de Validación", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
+        
         
         nuevoVehiculo = new VehiculoSinConvenio(placa, modelo, propietario, aseguradora);
     }
@@ -607,7 +640,7 @@ private void mostrarPorcentajeVerificadas() {
         } else {
              // Esto puede ocurrir si el método adicionarVehiculo maneja duplicados
              javax.swing.JOptionPane.showMessageDialog(this, "Error: No se pudo registrar el vehículo. (Posiblemente placa duplicada)", "Error de Guardado", javax.swing.JOptionPane.ERROR_MESSAGE);
-        }
+        }}
 
         
     } catch (NumberFormatException e) {
@@ -633,6 +666,10 @@ private void mostrarPorcentajeVerificadas() {
     // Ahora habilita el JComboBox
     cmbAseguradora.setEnabled(true);
     }//GEN-LAST:event_rbSinConvenioActionPerformed
+
+    private void txtDescripcionRepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionRepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescripcionRepActionPerformed
     
     private void limpiarCamposRegistro() {
     // Limpieza de campos de texto
@@ -727,6 +764,7 @@ private void mostrarPorcentajeVerificadas() {
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtPlacaBusqueda;
     private javax.swing.JTextField txtPlacaReparacion;
+    private javax.swing.JLabel txtValidacionPlaca;
     // End of variables declaration//GEN-END:variables
 
 }
